@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.AddrAddActivity">
+
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftIcon="@mipmap/back_black"
+            app:titleStyle="bold"
+            app:title="新增收货地址"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/shtext"
+                android:text="收货姓名" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addr_add_name"
+                style="@style/shtext2"
+                android:hint="请输入收货人姓名" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="0.5dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/shtext"
+                android:text="联系方式" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addr_add_mobile"
+                style="@style/shtext2"
+                android:hint="请输入收货人电话" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/shtext"
+                android:text="收货地区" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addr_add_area"
+                style="@style/shtext2"
+                android:hint="请选择省/市/区/街道" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="0.5dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/shtext"
+                android:text="详细地址" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addr_add_detail"
+                style="@style/shtext2"
+                android:hint="请输入街道地址" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/shtext"
+                android:layout_weight="1"
+                android:text="设为默认地址" />
+
+            <com.hpkj.txsapp.widget.view.SwitchButton
+                android:id="@+id/sb_moren"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

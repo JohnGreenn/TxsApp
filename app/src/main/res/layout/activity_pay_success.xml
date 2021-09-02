@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.PaySuccessActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_paysuccess_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_dp"
+                android:layout_marginRight="@dimen/common_dp"
+                android:layout_toLeftOf="@+id/iv_paysuccess_enter"
+                android:text="返回首页"
+                android:textColor="@color/common_red"
+                android:textSize="@dimen/sp_14" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_paysuccess_enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/enter_red"
+                android:layout_marginRight="@dimen/common_dp"
+                android:layout_marginTop="@dimen/common_dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_paysuccess_txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付成功"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="44dp"
+                android:layout_marginLeft="112dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_paysuccess_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pay_success_icon"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="68dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_paysuccess_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_paysuccess_txt1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_toRightOf="@+id/iv_paysuccess_icon"
+                android:text="实付："
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_paysuccess_txt1"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_toRightOf="@+id/tv_paysuccess_txt2"
+                android:text="￥189.5"
+                android:textColor="@color/common_red"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_paysuccess_txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="感谢您选择同心树，我们会将商品尽快
+送到您手中"
+                android:textColor="@color/c999999"
+                android:textSize="@dimen/txt_common_sp"
+                android:layout_toRightOf="@+id/iv_paysuccess_icon"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="60dp"
+                android:layout_below="@+id/tv_paysuccess_txt2"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/pay_success_button"
+                android:text="继续购物"
+                android:layout_below="@id/tv_paysuccess_txt3"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="22dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/pay_success_button"
+                android:layout_below="@id/tv_paysuccess_txt3"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="22dp"
+                android:layout_marginRight="60dp"
+                android:text="查看订单" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_paysuccess_txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精选推荐"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/c333333"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pay_success_left"
+                android:layout_marginRight="@dimen/common_dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tv_paysuccess_txt4"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pay_success_right"
+                android:layout_marginLeft="@dimen/common_dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_paysuccess_txt4"/>
+
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</layout>

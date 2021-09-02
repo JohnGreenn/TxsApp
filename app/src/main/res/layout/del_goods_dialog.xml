@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="290dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="0px"
+    tools:context=".ui.dialog.CommonDialog">
+
+    <LinearLayout
+        android:id="@+id/ll_ui_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_cart_del_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            tools:text="提示" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_cart_del_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#595959"
+            android:textSize="17sp"
+            tools:text="您是否要删除已选中的商品" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_size"
+            android:layout_marginTop="10dp"
+            android:background="@color/common_line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_ui_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_selector"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="我在想想"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/v_ui_line"
+                android:layout_width="@dimen/line_size"
+                android:layout_height="match_parent"
+                android:background="@color/common_line_color" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_ui_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_selector"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="确定删除"
+                android:textColor="@color/common_red"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

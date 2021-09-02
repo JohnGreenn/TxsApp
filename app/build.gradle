@@ -1,0 +1,160 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    buildFeatures{
+        dataBinding = true
+        // for view binding :
+        // viewBinding = true
+    }
+
+    defaultConfig {
+        applicationId "com.hpkj.txsapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // Apk 签名的那些事：https://www.jianshu.com/p/a1f8e5896aa2
+//    signingConfigs {
+//        config {
+//            storeFile file('/Users/gelingqiang/AndroidStudioProjects/key/txsbase.jks')
+//            storePassword 'hp123456'
+//            keyAlias 'txsapp'
+//            keyPassword 'hp123456'
+//        }
+//    }
+
+    buildTypes {
+        release {
+            // 调试模式开关
+            debuggable false
+            jniDebuggable false
+            // 日志打印开关
+            buildConfigField('boolean', 'LOG_ENABLE', 'false')
+            // 正式包下的 BuglyId
+            buildConfigField('String', 'BUGLY_ID', '"请自行替换 Bugly 上面的 AppID"')
+            // 正式服务器的主机地址
+            buildConfigField('String', 'HOST_URL', '"https://www.baidu.com/"')
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 签名信息配置
+            //signingConfig signingConfigs.config
+
+            // 仅保留两种架构的 so 库，根据 Bugly 统计得出
+            ndk {
+                // armeabi：万金油架构平台（占用率：0%）
+                // armeabi-v7a：曾经主流的架构平台（占用率：10%）
+                // arm64-v8a：目前主流架构平台（占用率：95%）
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            }
+        }
+
+        debug {
+            // 调试模式开关
+            debuggable true
+            jniDebuggable true
+            // 日志打印开关
+            buildConfigField('boolean', 'LOG_ENABLE', 'true')
+            // 测试包下的 BuglyId
+            buildConfigField('String', 'BUGLY_ID', '"请自行替换 Bugly 上面的 AppID"')
+            // 测试服务器的主机地址
+            buildConfigField('String', 'HOST_URL', '"https://lm.spshop.cn/"')
+
+            //buildConfigField "String", "BaseURL", "\"http://testlm.spshop.cn:50000/\""
+            buildConfigField "String", "BaseSC", "\"http://testlm.spshop.cn:6001\""
+
+            // 仅保留两种架构的 so 库，根据 Bugly 统计得出
+            ndk {
+                // armeabi：万金油架构平台（占用率：0%）
+                // armeabi-v7a：曾经主流的架构平台（占用率：10%）
+                // arm64-v8a：目前主流架构平台（占用率：95%）
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'org.jetbrains:annotations:15.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // 图片加载框架：https://github.com/bumptech/glide
+    // 官方使用文档：https://muyangmin.github.io/glide-docs-cn/
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // 基础依赖包，必须要依赖
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // fragment快速实现（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+
+    //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // 吐司框架：https://github.com/getActivity/ToastUtils
+    implementation 'com.hjq:toast:8.8'
+
+    // 标题栏框架：https://github.com/getActivity/TitleBar
+    implementation 'com.hjq:titlebar:8.5'
+
+    // 网络请求框架：https://github.com/getActivity/EasyHttp
+    implementation 'com.hjq:http:9.0'
+    // OkHttp 框架：https://github.com/square/okhttp
+    // noinspection GradleDependency
+    implementation 'com.squareup.okhttp3:okhttp:3.12.12'
+
+    // Json 解析框架：https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // Gson 解析容错：https://github.com/getActivity/GsonFactory
+    implementation 'com.hjq.gson:factory:3.0'
+
+    // 沉浸式框架：https://github.com/gyf-dev/ImmersionBar
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+
+    // 动画解析库：https://github.com/airbnb/lottie-android
+    // 动画资源：https://lottiefiles.com、https://icons8.com/animated-icons
+    implementation 'com.airbnb.android:lottie:3.6.1'
+
+    // 刷新框架：https://github.com/scwang90/SmartRefreshLayout
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.3'
+    implementation 'com.scwang.smart:refresh-header-material:2.0.3'
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
+
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    implementation 'com.hjq:xxpermissions:10.5'
+
+    // 日志打印框架：https://github.com/JakeWharton/timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //banner
+    implementation 'com.youth.banner:banner:2.1.0'
+
+    /*tencent tbs*/
+    implementation 'com.tencent.tbs.tbssdk:sdk:43939'
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+}

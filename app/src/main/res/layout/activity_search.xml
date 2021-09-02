@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.hpkj.txsapp.ui.activity.SearchActivity" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="flg"
+            type="Integer" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/search"
+            app:leftIcon="@mipmap/back_black"
+            app:titleStyle="bold" />
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/common_dp">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/common_dp"
+                android:background="@drawable/search_bg_yellow"
+                android:drawableLeft="@drawable/search_icon"
+                android:paddingLeft="@dimen/common_dp"/>
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:text="@string/search"
+                android:textColor="#EBB538"
+                android:paddingLeft="@dimen/common_dp"
+                android:paddingRight="@dimen/common_dp"/>
+        </LinearLayout>
+
+        <!--历史搜索-->
+        <LinearLayout
+            android:id="@+id/ll_history_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:background="@color/white">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_history_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="最近搜索"
+                    android:drawablePadding="7dp"
+                    android:gravity="center"
+                    android:textColor="#8B8B8B"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageButton
+                    android:id="@+id/clear_all_records"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/addr_del"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:gravity="center"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.hpkj.txsapp.other.three.flowlayout.TagFlowLayout
+                android:id="@+id/fl_search_records"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                app:is_limit="true"
+                app:limit_line_count="2"
+                app:max_select="1" />
+
+        </LinearLayout>
+
+<!--        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>-->
+
+    </LinearLayout>
+</layout>

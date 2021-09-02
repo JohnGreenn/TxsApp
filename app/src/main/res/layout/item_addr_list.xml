@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.hpkj.txsapp.ui.activity.AddrDeliveryActivity" />
+
+        <variable
+            name="positon"
+            type="Integer" />
+
+        <variable
+            name="data"
+            type="com.hpkj.txsapp.http.response.AddrDetailBean" />
+
+        <variable
+            name="click"
+            type="com.hpkj.txsapp.ui.utils.ClickUtil" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_frame_white">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_address_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text='@{data.name??"",default="--"}'
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_address_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text='@{data.mobile??"",default="--"}'
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintLeft_toRightOf="@id/tv_address_name"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_detail_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text='@{data.province+data.city+data.district+data.addr??"",default="--"}'
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address_name"
+            tools:ignore="MissingConstraints" />
+
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#1a000000"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_address"
+            tools:ignore="MissingConstraints" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cb_default_address"
+            style="@style/address_checkbox_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:drawableLeft='@{data.is_default==1?@drawable/addr_select:@drawable/addr_unsel,default=@drawable/addr_unsel}'
+            android:drawablePadding="5dp"
+            android:textSize="12sp"
+            android:text="默认地址"
+            android:textColor="#8B8B8B"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="15dp"
+            android:drawableLeft="@drawable/addr_edit"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cb_default_address"
+            app:layout_constraintRight_toLeftOf="@+id/tv_del"
+            app:layout_constraintTop_toTopOf="@+id/cb_default_address" />
+            <!--app:clickview="@{(view)->click.toEditAdress(view,data.id,data.name,data.mobile,data.province,data.city,data.district,data.addr,data.tag_type,data.is_default,data.tag_type)}"-->
+
+        <TextView
+            android:id="@+id/tv_del"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/addr_del"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cb_default_address"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cb_default_address" />
+        <!--app:clickview="@{(view)->activity.onClick(view,data.id,data.tag_type)}"-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
