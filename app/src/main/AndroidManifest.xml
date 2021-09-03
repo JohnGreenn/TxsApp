@@ -26,6 +26,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TxsAppBase">
         <activity
+            android:name=".ui.activity.AfterSalesActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.OrderActivity"
             android:exported="true" />
         <activity

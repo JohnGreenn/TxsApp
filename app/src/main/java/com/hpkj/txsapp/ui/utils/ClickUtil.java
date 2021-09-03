@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;
 
 import com.hpkj.txsapp.http.response.ShopGoodsListBean;
+import com.hpkj.txsapp.ui.activity.AfterSalesActivity;
 import com.hpkj.txsapp.ui.activity.GoodsDetailActivity;
 import com.hpkj.txsapp.ui.activity.OrderActivity;
 import com.hpkj.txsapp.ui.activity.SearchActivity;
@@ -72,8 +73,15 @@ public class ClickUtil {
         return showprice == null ? "-" : showprice;
     }
 
+    //去订单列表
     public void toOrder(View view) {
         Intent intent = new Intent(view.getContext(), OrderActivity.class);
+        view.getContext().startActivity(intent);
+    }
+
+    //去售后
+    public void toAfterSales(View view) {
+        Intent intent = new Intent(view.getContext(), AfterSalesActivity.class);
         view.getContext().startActivity(intent);
     }
 
