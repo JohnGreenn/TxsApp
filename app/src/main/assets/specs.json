@@ -1,0 +1,103 @@
+{
+  "id": "1",
+  "price": "3400~3500",
+  "repertory": "22",
+  "img": "http://www.ucicq.com/uploads/allimg/170304/03150NL5_0.jpeg",
+  "specKey": [
+    {
+      "id": "1",
+      "spec_name": "颜色",
+      "spec_key": [
+        "白色",
+        "红色",
+        "金色"
+      ]
+    },
+    {
+      "id": "2",
+      "spec_name": "霸气",
+      "spec_key": [
+        "见闻色",
+        "武装色",
+        "霸王色"
+      ]
+    },
+    {
+      "id": "3",
+      "spec_name": "尺寸",
+      "spec_key": [
+        "钻地",
+        "爬行",
+        "飞行"
+      ]
+    }
+  ],
+  "specsGroup": [
+    {
+      "id": "1",
+      "price": "90.00",
+      "repertory": "25",
+      "goods_spec": [
+        "白色",
+        "见闻色",
+        "钻地"
+      ],
+      "img": "http://img3.imgtn.bdimg.com/it/u=2247424153,1809959294&fm=11&gp=0.jpg"
+    },
+    {
+      "id": "2",
+      "price": "100.00",
+      "repertory": "4",
+      "goods_spec": [
+        "红色",
+        "见闻色",
+        "钻地"
+      ],
+      "img": "http://www.005.tv/uploads/allimg/170208/1S92W191-19.jpg"
+    },
+    {
+      "id": "3",
+      "price": "200.00",
+      "repertory": "2",
+      "goods_spec": [
+        "红色",
+        "武装色",
+        "飞行"
+      ],
+      "img": "http://imgsrc.baidu.com/forum/w=580/sign=92466e82763e6709be0045f70bc69fb8/71e24cd02f2eb938ae90e857dc628535e4dd6f98.jpg"
+    },
+    {
+      "id": "4",
+      "price": "300.00",
+      "repertory": "12",
+      "goods_spec": [
+        "红色",
+        "霸王色",
+        "飞行"
+      ],
+      "img": "http://imgsrc.baidu.com/forum/w=580/sign=54bcb81c855494ee87220f111df4e0e1/768ca80f4bfbfbed0c060fdc71f0f736aec31fdc.jpg"
+    },
+    {
+      "id": "5",
+      "price": "400.00",
+      "repertory": "22",
+      "goods_spec": [
+        "金色",
+        "霸王色",
+        "爬行"
+      ],
+      "img": "http://www.005.tv/uploads/allimg/170208/1S92S645-8.jpg"
+    },
+    {
+      "id": "6",
+      "price": "500.00",
+      "repertory": "22",
+      "goods_spec": [
+        "金色",
+        "霸王色",
+        "飞行"
+      ],
+      "img": "http://zgsuixian.com/up/2017-2/201702051016251725888.jpg"
+    }
+  ]
+}

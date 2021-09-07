@@ -9,9 +9,8 @@ import java.util.ArrayList;
 /**
  * 描述：自营商城规格属性
  * 文件：SpecificationsListBean.java
- * 作者：Hujm
- * 添加版本：V4.2.12
- * 时间：2020/6/23 10:15
+ * 作者：Glq
+ * 时间：2021/9/03 10:15
  */
 public class SpecificationsListBean {
     /**

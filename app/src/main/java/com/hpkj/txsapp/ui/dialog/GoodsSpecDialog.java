@@ -4,20 +4,31 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hpkj.txsapp.R;
 import com.hpkj.txsapp.aop.SingleClick;
 import com.hpkj.txsapp.app.AppAdapter;
 import com.hpkj.txsapp.base.BaseAdapter;
 import com.hpkj.txsapp.base.BaseDialog;
+import com.hpkj.txsapp.databinding.DialogGdSpecBinding;
+import com.hpkj.txsapp.databinding.DialogGdSpecItemBinding;
+import com.hpkj.txsapp.http.response.SpecificationsListBean;
+import com.hpkj.txsapp.other.three.flowlayout.FlowLayout;
+import com.hpkj.txsapp.other.three.flowlayout.TagAdapter;
+import com.hpkj.txsapp.other.three.flowlayout.TagFlowLayout;
+import com.hpkj.txsapp.ui.activity.SearchActivity;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,21 +53,38 @@ public final class GoodsSpecDialog {
 
         private final MenuAdapter mAdapter;
 
+        private RoundedImageView mPic;
+        private TextView mPrice;
+        private LinearLayout llspecshow;
+        DialogGdSpecItemBinding itemBinding;
+        //DialogGdSpecBinding item;
+
+        private TagAdapter mRecordsAdapter;
+
         public Builder(Context context) {
             super(context);
+
             setContentView(R.layout.dialog_gd_spec);
+            //setContentView(item.getRoot());
             setAnimStyle(BaseDialog.ANIM_BOTTOM);
 
             mRecyclerView = findViewById(R.id.rv_menu_list);
             mCancelView  = findViewById(R.id.iv_gd_dialog_cancel);
+
+            mPic = findViewById(R.id.riv_gd_dialog_pic);
+            mPrice = findViewById(R.id.tv_gd_dialog_price);
+            llspecshow = findViewById(R.id.ll_gd_spec);
+
             setOnClickListener(mCancelView);
 
             mAdapter = new MenuAdapter(getContext());
             mAdapter.setOnItemClickListener(this);
             //mRecyclerView.setAdapter(mAdapter);
+            //加载规格
+
         }
 
-        @Override
+/*        @Override
         public Builder setGravity(int gravity) {
             switch (gravity) {
                 // 如果这个是在中间显示的
@@ -69,7 +97,103 @@ public final class GoodsSpecDialog {
                     break;
             }
             return super.setGravity(gravity);
+        }*/
+
+/*        public Builder setPrice(@StringRes int id) {
+            return setPrice(getString(id));
+        }*/
+
+        public Builder setPrice(CharSequence text) {
+            mPrice.setText(text);
+            return this;
         }
+
+        public Builder setPic(@StringRes int id) {
+            return setPic(getString(id));
+        }
+
+        public Builder setPic(CharSequence text) {
+
+            Glide.with(getContext())
+                    .load(text)
+                    .circleCrop()
+                    .into(mPic);
+            //mPic.setText(text);
+            return this;
+        }
+
+/*        public Builder setSpecData(int... ids) {
+            List<SpecificationsListBean> data = new ArrayList<>(ids.length);
+            for (int id : ids) {
+                data.add(getString(id));
+            }
+            return setSpecData(data);
+        }*/
+
+        public Builder setSpecData(List<SpecificationsListBean> dataList) {
+
+            for(int i = 0; i <dataList.size() ; i++) {
+                View viewAll =  LayoutInflater.from(getContext()).inflate(
+                        R.layout.dialog_gd_spec_item,null);
+
+                if(viewAll.getParent()!=null){
+                    llspecshow.removeAllViews();
+                }
+                //加载标题
+                String mSpecname = dataList.get(i).getName();
+                ((TextView) viewAll.findViewById(R.id.tv_gd_spec_item_title)).setText(mSpecname);
+
+                //加载规格
+                TagFlowLayout tagFlow = viewAll.findViewById(R.id.fl_gd_spec);
+
+/*                if(mRecordsAdapter != null) {
+                    mRecordsAdapter.setData(dataList.get(i).getValues());
+                    mRecordsAdapter.notifyDataChanged();
+                }*/
+
+                //创建历史标签适配器
+                //为标签设置对应的内容
+                mRecordsAdapter = new TagAdapter<SpecificationsListBean.ValuesBean>(dataList.get(i).getValues()) {
+                    @Override
+                    public View getView(FlowLayout parent,int position,SpecificationsListBean.ValuesBean valuesBean) {
+                        TextView tv = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.tv_spec,
+                                tagFlow,false);
+
+                        //为标签设置对应的内容
+                        tv.setText(valuesBean.getSpecificationsName());
+                        return tv;
+                    }
+                };
+
+                tagFlow.setOnTagClickListener((view,position,parent) -> {
+
+                    TextView tvTag = findViewById(R.id.tv_spec_tag);
+                    tvTag.setBackgroundResource(R.drawable.btn_spec_tag_select);
+                    tvTag.setTextColor(getResources().getColor(R.color.common_confirm_text_color));
+                });
+
+
+                tagFlow.setAdapter(mRecordsAdapter);
+
+                llspecshow.addView(viewAll);
+            }
+
+
+
+
+
+
+            //View parent = view.getParent();
+
+
+
+            //mPic.setText(text);
+            return this;
+        }
+
+
+
+
 
         public Builder setList(int... ids) {
             List<String> data = new ArrayList<>(ids.length);

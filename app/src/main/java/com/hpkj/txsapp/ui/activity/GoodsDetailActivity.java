@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.hjq.http.EasyHttp;
 import com.hjq.http.listener.OnHttpListener;
 import com.hpkj.txsapp.R;
@@ -20,6 +21,8 @@ import com.hpkj.txsapp.http.response.SpecificationsListBean;
 import com.hpkj.txsapp.http.response.DataBean;
 import com.hpkj.txsapp.other.EncryptUtil;
 import com.hpkj.txsapp.other.NumIndicator;
+import com.hpkj.txsapp.other.three.spec.Data;
+import com.hpkj.txsapp.other.three.spec.SelectMoreDialog;
 import com.hpkj.txsapp.ui.dialog.GoodsSpecDialog;
 import com.hpkj.txsapp.ui.dialog.MenuDialog;
 import com.hpkj.txsapp.widget.view.GradationScrollView;
@@ -29,6 +32,7 @@ import com.tencent.smtt.sdk.WebViewClient;
 import com.youth.banner.adapter.BannerImageAdapter;
 import com.youth.banner.holder.BannerImageHolder;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +41,10 @@ public class GoodsDetailActivity extends AppActivity<ActivityGoodsDetailBinding>
     private int gid = 0;
     DataBean testBean;
     private int imageHeight; //图片高度
+
+    private List<SpecificationsListBean> specBeanList = new ArrayList<>();
+    private String jsonString;
+    private Data data;
 
     @Override
     protected int getLayoutId() {
@@ -73,6 +81,7 @@ public class GoodsDetailActivity extends AppActivity<ActivityGoodsDetailBinding>
                         userGoodsDetail(result.getData().getBaseInfo().getGoodDesc());
                         //规格展示
                         useSpec(result.getData().getSpecificationsList());
+                        specBeanList = result.getData().getSpecificationsList();
 
                     }
 
@@ -196,22 +205,47 @@ public class GoodsDetailActivity extends AppActivity<ActivityGoodsDetailBinding>
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.rl_gd_spec:
-                List<String> data = new ArrayList<>();
-                for (int i = 0; i < 10; i++) {
-                    data.add("我是数据" + (i + 1));
-                }
+
                 // 居中选择框
-                new GoodsSpecDialog.Builder(this)
+/*                new GoodsSpecDialog.Builder(this)
+                        .setPrice("2500")
+                        .setPic("https://www.baidu.com/img/bd_logo.png")
+                        .setSpecData(specBeanList)
                         .setListener(new GoodsSpecDialog.OnListener() {
                             @Override
                             public void onSelected(BaseDialog dialog,int position,Object o) {
 
                             }
                         })
-                        .show();
-                ;
+                        .show();*/
+
+                initJsonData();
+                getData();
+                SelectMoreDialog selectMoreDialog = new SelectMoreDialog(this, data);
+                selectMoreDialog.show();
+
                 break;
 
         }
     }
+
+    //本地数据测试专用
+    private void initJsonData() {
+        try {
+            InputStream is = getAssets().open("specs.json");//打开json数据
+            byte[] by = new byte[is.available()];//转字节
+            is.read(by);
+            jsonString = new String(by, "utf-8");
+            is.close();//关闭流
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //解析Json数据
+    private void getData() {
+        Gson gson = new Gson();
+        data = gson.fromJson(jsonString, Data.class);
+    }
+
 }
