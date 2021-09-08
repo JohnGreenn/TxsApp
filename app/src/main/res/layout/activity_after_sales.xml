@@ -18,9 +18,23 @@
             android:layout_height="wrap_content"
             app:title="换货/售后"
             android:background="@color/transparent"
-            app:leftIcon="@mipmap/back_black"/>
+            app:leftIcon="@mipmap/back_black"
+            app:rightTitle="..." />
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_aftersales_tab"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:tabIndicatorColor="@color/transparent"
+            app:tabIndicatorHeight="0dp"
+            app:tabRippleColor="@color/transparent"
+            app:tabSelectedTextColor="@color/common_red"
+            app:tabTextColor="@color/c333333" />
 
+        <com.hpkj.txsapp.widget.layout.NestedViewPager
+            android:id="@+id/vp_aftersales_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>

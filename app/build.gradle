@@ -157,4 +157,7 @@ dependencies {
     implementation 'com.tencent.tbs.tbssdk:sdk:43939'
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //图片选择框架：https://github.com/LuckSiege/PictureSelector/blob/master/README_CN.md
+    implementation 'io.github.lucksiege:pictureselector:v2.7.3-rc08'
 }
