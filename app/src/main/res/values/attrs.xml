@@ -114,4 +114,10 @@
         </attr>
     </declare-styleable>
 
+    <!--退货状态-->
+    <declare-styleable name="ReturnGoodsView">
+        <!--退货进程状态1~5-->
+        <attr name="return_status" format="integer" />
+    </declare-styleable>
+
 </resources>
