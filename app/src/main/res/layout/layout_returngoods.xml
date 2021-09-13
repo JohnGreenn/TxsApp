@@ -1,179 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <!--*********************************************-->
-        <!--最左边-提交申请-->
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_most_left"
-            android:layout_width="wrap_content"
+        <data>
+
+        </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/return_goods_finish"
-            app:layout_constraintRight_toLeftOf="@+id/line_most_left"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:background="@color/transparent">
 
-        <View
-            android:id="@+id/line_most_left"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:alpha="1"
-            app:layout_constraintRight_toLeftOf="@+id/line_handle_left"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <!--*********************************************-->
+                <!--最左边-提交申请-->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_most_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/return_goods_finish"
+                    app:layout_constraintRight_toLeftOf="@+id/line_most_left"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <!--*********************************************-->
-        <!--左边-处理申请-->
-        <View
-            android:id="@+id/line_handle_left"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:alpha="0.5"
-            app:layout_constraintRight_toLeftOf="@+id/iv_handle"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <View
+                    android:id="@+id/line_most_left"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:alpha="1"
+                    app:layout_constraintRight_toLeftOf="@+id/line_handle_left"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_handle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/return_goods_unfinish"
-            app:layout_constraintRight_toLeftOf="@+id/line_handle_right"
-            app:layout_constraintTop_toTopOf="parent"/>
+                <!--*********************************************-->
+                <!--左边-处理申请-->
+                <View
+                    android:id="@+id/line_handle_left"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:alpha="0.5"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_handle"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <View
-            android:id="@+id/line_handle_right"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:alpha="0.5"
-            app:layout_constraintRight_toLeftOf="@+id/line_center_return_left"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_handle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/return_goods_unfinish"
+                    app:layout_constraintRight_toLeftOf="@+id/line_handle_right"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <!--*********************************************-->
-        <!--中间-寄回商品-->
-        <View
-            android:id="@+id/line_center_return_left"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:alpha="0.5"
-            app:layout_constraintRight_toLeftOf="@+id/iv_center_return"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <View
+                    android:id="@+id/line_handle_right"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:alpha="0.5"
+                    app:layout_constraintRight_toLeftOf="@+id/line_center_return_left"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_center_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/return_goods_unfinish"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+                <!--*********************************************-->
+                <!--中间-寄回商品-->
+                <View
+                    android:id="@+id/line_center_return_left"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:alpha="0.5"
+                    app:layout_constraintRight_toLeftOf="@+id/iv_center_return"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <View
-            android:id="@+id/line_center_return_right"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:alpha="0.5"
-            app:layout_constraintLeft_toRightOf="@+id/iv_center_return"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_center_return"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/return_goods_unfinish"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <!--*********************************************-->
-        <!--右边商家处理-->
-        <View
-            android:id="@+id/line_enterprise_left"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:alpha="0.5"
-            app:layout_constraintLeft_toRightOf="@+id/line_center_return_right"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <View
+                    android:id="@+id/line_center_return_right"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:alpha="0.5"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_center_return"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_enterprise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/return_goods_unfinish"
-            app:layout_constraintLeft_toRightOf="@+id/line_enterprise_left"
-            app:layout_constraintTop_toTopOf="parent"/>
+                <!--*********************************************-->
+                <!--右边商家处理-->
+                <View
+                    android:id="@+id/line_enterprise_left"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:alpha="0.5"
+                    app:layout_constraintLeft_toRightOf="@+id/line_center_return_right"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <View
-            android:id="@+id/line_enterprise_right"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            app:layout_constraintLeft_toRightOf="@+id/iv_enterprise"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_enterprise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/return_goods_unfinish"
+                    app:layout_constraintLeft_toRightOf="@+id/line_enterprise_left"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <!--*********************************************-->
-        <!--最右边-换货成功-->
+                <View
+                    android:id="@+id/line_enterprise_right"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_enterprise"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
 
-        <View
-            android:id="@+id/line_most_right"
-            android:layout_width="35dp"
-            android:layout_height="1dp"
-            android:alpha="0.5"
-            android:background="@color/white"
-            app:layout_constraintLeft_toRightOf="@+id/line_enterprise_right"
-            app:layout_constraintTop_toTopOf="@+id/iv_center_return"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_center_return"/>
+                <!--*********************************************-->
+                <!--最右边-换货成功-->
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_most_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/return_goods_unfinish"
-            app:layout_constraintLeft_toRightOf="@+id/line_most_right"
-            app:layout_constraintTop_toTopOf="parent"/>
+                <View
+                    android:id="@+id/line_most_right"
+                    android:layout_width="35dp"
+                    android:layout_height="1dp"
+                    android:alpha="0.5"
+                    android:background="@color/white"
+                    app:layout_constraintLeft_toRightOf="@+id/line_enterprise_right"
+                    app:layout_constraintTop_toTopOf="@+id/iv_center_return"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_center_return" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_most_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/return_goods_unfinish"
+                    app:layout_constraintLeft_toRightOf="@+id/line_most_right"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-        <!--*********************************************-->
-        <!--图标下文字部分-->
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/return_goods_text"
-            android:text="提交申请"
-            app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
-            app:layout_constraintLeft_toLeftOf="@+id/iv_most_left"/>
+                <!--*********************************************-->
+                <!--图标下文字部分-->
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/return_goods_text"
+                    android:text="提交申请"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_most_left" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/return_goods_text"
-            android:text="处理申请"
-            app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
-            app:layout_constraintLeft_toLeftOf="@+id/iv_handle"
-            app:layout_constraintRight_toRightOf="@+id/iv_handle"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/return_goods_text"
+                    android:text="处理申请"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_handle"
+                    app:layout_constraintRight_toRightOf="@+id/iv_handle" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/return_goods_text"
-            android:text="寄回商品"
-            app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
-            app:layout_constraintLeft_toLeftOf="@+id/iv_center_return"
-            app:layout_constraintRight_toRightOf="@+id/iv_center_return"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/return_goods_text"
+                    android:text="寄回商品"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_center_return"
+                    app:layout_constraintRight_toRightOf="@+id/iv_center_return" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/return_goods_text"
-            android:text="商家处理"
-            app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
-            app:layout_constraintLeft_toLeftOf="@+id/iv_enterprise"
-            app:layout_constraintRight_toRightOf="@+id/iv_enterprise"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/return_goods_text"
+                    android:text="商家处理"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
+                    app:layout_constraintLeft_toLeftOf="@+id/iv_enterprise"
+                    app:layout_constraintRight_toRightOf="@+id/iv_enterprise" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/return_goods_text"
-            android:text="换货成功"
-            app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
-            app:layout_constraintRight_toRightOf="@+id/iv_most_right"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/return_goods_text"
+                    android:text="换货成功"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_most_left"
+                    app:layout_constraintRight_toRightOf="@+id/iv_most_right" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
