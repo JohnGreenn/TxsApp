@@ -106,4 +106,7 @@
     <!-- 橙色 -->
     <color name="orange">#FFFFA500</color>
 
+
+    <color name="gray_deep">#999</color>
+
 </resources>

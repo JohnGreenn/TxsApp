@@ -1,7 +1,9 @@
 package com.hpkj.txsapp.ui.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.util.TypedValue;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -13,7 +15,7 @@ import com.hpkj.txsapp.app.AppApplication;
 
 /**
  * 描述：图片加载辅助
- * author：GeLing
+ * author：Glq
  */
 public class SimpleUtils {
     private static RequestOptions options = new RequestOptions()
@@ -70,5 +72,9 @@ public class SimpleUtils {
     public static int dip2px(Context context,float dpValue) {
         float scale = context.getResources().getDisplayMetrics().density;
         return (int) ((dpValue * scale) + 0.5f);
+    }
+
+    public static float dp2px(float value) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, Resources.getSystem().getDisplayMetrics());
     }
 }

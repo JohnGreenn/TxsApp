@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="物流信息"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:background="@color/white">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/riv_pic"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:riv_corner_radius="@dimen/dp_4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="@dimen/common_dp"
+                android:src="@mipmap/app_icon"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运输中"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/c333333"
+                app:layout_constraintTop_toTopOf="@+id/riv_pic"
+                app:layout_constraintLeft_toRightOf="@+id/riv_pic"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/common_dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="物流公司:圆通速递"
+                app:layout_constraintLeft_toRightOf="@+id/riv_pic"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginLeft="@dimen/common_dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="物流单号:165892540233111"
+                app:layout_constraintLeft_toRightOf="@+id/riv_pic"
+                app:layout_constraintBottom_toBottomOf="@+id/riv_pic"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginLeft="@dimen/common_dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_10"
+                android:text="复制"
+                android:textColor="@color/c333333"
+                app:layout_constraintBottom_toBottomOf="@+id/riv_pic"
+                app:layout_constraintLeft_toRightOf="@+id/tv_1"
+                android:layout_marginLeft="@dimen/common_dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_logistics"
+            android:layout_margin="@dimen/common_dp"
+            android:background="@drawable/bg_white_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>
