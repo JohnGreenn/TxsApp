@@ -11,8 +11,8 @@
         android:layout_marginLeft="@dimen/common_dp"
         android:layout_marginBottom="@dimen/common_dp"
         android:padding="6dp"
-        android:text="皮皮虾"
-        android:textSize="22sp"
+        android:text="文字"
+        android:textSize="14sp"
         android:textColor="@color/c333333" />
 
 </LinearLayout>
